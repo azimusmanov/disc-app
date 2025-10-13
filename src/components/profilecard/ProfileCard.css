@@ -1,0 +1,83 @@
+.profileCard {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profileCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.profile_picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #f0f0f0;
+}
+
+.username {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px 0;
+}
+
+.role {
+    font-size: 1em;
+    color: #666;
+    margin: 5px 0;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.favorite_genres {
+    font-size: 0.9em;
+    color: #888;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+/* Profile container styling */
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+}
+
+/* Dark mode styles */
+.dark .profileCard {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark .profileCard:hover {
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+}
+
+.dark .username {
+    color: #fff;
+}
+
+.dark .role {
+    color: #ccc;
+}
+
+.dark .favorite_genres {
+    color: #aaa;
+}
+
+.dark .profile_picture {
+    border-color: #555;
+}

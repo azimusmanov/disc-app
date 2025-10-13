@@ -1,16 +1,31 @@
-# React + Vite
+# Azim Usmanov DISC project - Social Music Connection Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application designed to foster social connections on campus through music. This platform connects artists, listeners, and producers, creating a vibrant community centered around musical interests and collaboration.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project aims to help students build meaningful connections through their shared passion for music. Whether you're a musician looking for collaborators, a producer seeking new talent, or simply a music enthusiast wanting to discover like-minded peers, this platform provides the tools to make those connections happen.
 
-## React Compiler
+## Core Features
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **User Profiles & Accounts**: Students can create detailed profiles showcasing their musical interests, skills, and preferences
+- **Advanced Filtering System**: Browse and filter profiles by musical genres, instruments, experience level, collaboration interests, and more
+- **Connection Management**: Save profiles of users you're interested in connecting with and manage your saved connections
+- **Contact Integration**: Seamless ways for in-app connections to transition to real-world collaborations through integrated contact methods
 
-## Expanding the ESLint configuration
+## Technical Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React + Vite
+- **Styling**: CSS with dark/light theme support
+- **Development**: Hot Module Replacement (HMR) for rapid development
+
+## Features in Development
+
+- Responsive navigation with theme switching
+- User profile cards and browsing interface
+- Search and filtering capabilities
+- Connection management system
+
+## Current Status
+
+Currently working on scaffolding the "Browse Accounts" page, which will serve as the main discovery interface for users to find and connect with other musicians and music enthusiasts on campus.
