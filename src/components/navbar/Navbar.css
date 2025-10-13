@@ -15,7 +15,7 @@
 
 ul{
     flex: 1;
-    list-style: None;
+    list-style: none;
     text-align: center;
 }
 
@@ -70,9 +70,14 @@ ul li{
 }
 
 .dark .search-box input{
-    background: #222;
+    background: #fff;
+    color: #222;
 }
 
 .dark .search-box input::placeholder{
-    background: #222;
+    color: #222;
+}
+
+.dark ul li{
+    color: white;
 }

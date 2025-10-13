@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <div className={'container ${theme}'}>
+      <div className={`container ${theme}`}>
         <Navbar theme = {theme} setTheme={setTheme} />
       </div>
     </>
