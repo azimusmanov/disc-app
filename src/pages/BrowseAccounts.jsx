@@ -1,27 +1,39 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 import ProfileCard from '../components/profilecard/ProfileCard'
 
-const BrowseAccounts = ({ theme }) => {
-  const profiles = [
-    {
-      id: 1,
-      username: 'Alex',
-      role: 'Producer',
-      favGenres: 'Hip-Hop, R&B'
-    },
-    {
-      id: 2,
-      username: 'Sarah',
-      role: 'Vocalist',
-      favGenres: 'Pop, Jazz'
-    },
-    {
-      id: 3,
-      username: 'Mike',
-      role: 'Guitarist',
-      favGenres: 'Rock, Blues'
+async function getData(){
+    const url = "https://disc-assignment-5-users-api-iyct.onrender.com/api/users";
+    let result;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error.message);
     }
-  ]
+    return result;
+}
+
+const BrowseAccounts = ({ theme }) => {
+//   Inititializing profiles state to Null
+  const [data, setData] = useState(null);
+ 
+  useEffect(() => {
+    console.log('TEST: this runs after the componenet renders')
+    
+    async function fetchData() {
+        const data = await getData();
+        setData(data);
+        console.log(data)
+    }
+
+    // Calling aboe function
+    fetchData();
+}, [])
 
   return (
     <div style={{ padding: '20px' }}>
@@ -32,12 +44,13 @@ const BrowseAccounts = ({ theme }) => {
         justifyContent: 'center',
         gap: '20px'
       }}>
-        {profiles.map(profile => (
+        {data && data.map(user => (
           <ProfileCard 
-            key={profile.id}
-            username={profile.username}
-            role={profile.role}
-            favGenres={profile.favGenres}
+            key={user.id}
+            pfp={user.profilePicture}
+            username={user.firstName}
+            role={user.email}
+            favGenres={user.major}
           />
         ))}
       </div>

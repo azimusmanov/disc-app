@@ -11,7 +11,7 @@ function ProfileCard({pfp, username, role, favGenres}){
     return(
       <div className='profileCard'>
         {/* <img src={pfp} alt="" /> */}
-        <img className='profile_picture' src={defaultpfp} alt="" />
+        <img className='profile_picture' src={pfp} alt="" />
         <h3 className='username'>{username}</h3>
         <h4 className='role'>{role}</h4>
         <p className='favorite_genres'>{favGenres}</p>
