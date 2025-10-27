@@ -4,6 +4,24 @@
   padding: 0;
 }
 
+.main-content {
+  min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+}
+
+.coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.5rem;
+  color: #666;
+  text-align: center;
+}
+
+.dark .coming-soon {
+  color: #ccc;
+}
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }

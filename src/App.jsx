@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
-import ProfileCard from './components/profilecard/ProfileCard'
+import Home from './pages/Home'
+import BrowseAccounts from './pages/BrowseAccounts'
 
 function App() {
 
@@ -11,23 +11,25 @@ function App() {
   const [theme, setTheme] = useState(current_theme?
     current_theme: 'light'
   );
-  const [count, setCount] = useState(0);
 
   useEffect(()=>{
     localStorage.setItem('current_theme', theme);
   }, [theme])
 
-
   return (
-    <>
+    <BrowserRouter>
       <div className={`container ${theme}`}>
-        <Navbar theme = {theme} setTheme={setTheme} />
-        <ProfileCard theme = {theme} setTheme={setTheme} pfp='' username='Azim' role='both' favGenres='Rap' />
-        <ProfileCard theme = {theme} setTheme={setTheme} pfp='' username='Azim2' role='both' favGenres='Rap' />
+        <Navbar theme={theme} setTheme={setTheme} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home theme={theme} />} />
+            <Route path="/browse-accounts" element={<BrowseAccounts theme={theme} />} />
+            <Route path="/discover" element={<div className="coming-soon">Discover page coming soon...</div>} />
+            <Route path="/your-account" element={<div className="coming-soon">Your Account page coming soon...</div>} />
+          </Routes>
+        </main>
       </div>
-
-      
-    </>
+    </BrowserRouter>
   )
 }
 
