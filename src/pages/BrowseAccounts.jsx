@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 import ProfileCard from '../components/profilecard/ProfileCard'
 
 async function getData(){
@@ -19,6 +20,7 @@ async function getData(){
 }
 
 const BrowseAccounts = ({ theme }) => {
+  const { theme } = useTheme()
 //   Inititializing profiles state to Null
   const [data, setData] = useState(null);
  
@@ -36,7 +38,7 @@ const BrowseAccounts = ({ theme }) => {
 }, [])
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className={`browse-accounts-page ${theme}`}style={{ padding: '20px' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Browse Accounts</h1>
       <div style={{ 
         display: 'flex', 
