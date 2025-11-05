@@ -1,8 +1,11 @@
 import React from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 
-const Home = ({ theme }) => {
+const Home = () => {
+  const { theme } = useTheme()
+  
   return (
-    <div style={{ padding: '40px', textAlign: 'center' }}>
+    <div className={theme} style={{ padding: '40px', textAlign: 'center' }}>
       <h1>Welcome to Eduford</h1>
       <p>Connect with musicians, artists, and producers on campus</p>
       <div style={{ marginTop: '40px' }}>
