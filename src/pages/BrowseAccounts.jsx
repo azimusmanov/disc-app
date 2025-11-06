@@ -1,41 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from '../contexts/ThemeContext'
 import ProfileCard from '../components/profilecard/ProfileCard'
-
-async function getData(){
-    const url = "http://localhost:5432/users";
-    let result;
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-
-        result = await response.json();
-        console.log(result);
-    } catch (error) {
-        console.error(error.message);
-    }
-    return result;
-}
+import { supabase } from '../config/supabase'
 
 const BrowseAccounts = () => {
   const { theme } = useTheme()
 //   Inititializing profiles state to Null
-  const [data, setData] = useState(null);
- 
-  useEffect(() => {
-    console.log('TEST: this runs after the componenet renders')
-    
-    async function fetchData() {
-        const data = await getData();
-        setData(data);
-        console.log(data)
-    }
+  const [users, setUsers] = useState([])
 
-    // Calling aboe function
-    fetchData();
-}, [])
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  async function getUsers() {
+    const { data } = await supabase.from("user_profiles").select()
+    setUsers(data)
+  }
 
   return (
     <div className={`browse-accounts-page ${theme}`} style={{ padding: '20px' }}>
@@ -46,13 +26,13 @@ const BrowseAccounts = () => {
         justifyContent: 'center',
         gap: '20px'
       }}>
-        {data && data.map(user => (
+        {users && users.map(user => (
           <ProfileCard 
             key={user.id}
             pfp={user.profilePicture}
-            username={user.firstName}
-            role={user.email}
-            favGenres={user.major}
+            username={user.user_name}
+            // role={user.email}
+            // favGenres={user.major}
           />
         ))}
       </div>
