@@ -13,8 +13,20 @@ const BrowseAccounts = () => {
   }, [])
 
   async function getUsers() {
-    const { data } = await supabase.from("user_profiles").select()
-    setUsers(data)
+    const url = "http://localhost:3000/users/profiles"
+    try {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`)
+      }
+
+      const result = await response.json()
+      console.log(result)
+      setUsers(result)  // ← Move this inside
+    } catch (error) {
+      console.error(error.message)
+    }
+    // setUsers(result)
   }
 
   return (
@@ -30,7 +42,7 @@ const BrowseAccounts = () => {
           <ProfileCard 
             key={user.id}
             pfp={user.profilePicture}
-            username={user.user_name}
+            username={user.date_of_birth}
             // role={user.email}
             // favGenres={user.major}
           />

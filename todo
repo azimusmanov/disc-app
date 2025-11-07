@@ -1,0 +1,7 @@
+figure out why we need users and user_profiles tables
+link these two tables
+Enable Authentication
+refactor endpoitns in users-api
+
+hw-7
+UseContext hook to conditionally render a component based on token status (HttpOnly) (maybe for ur profile page?)
