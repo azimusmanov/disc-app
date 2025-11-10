@@ -40,11 +40,11 @@ const BrowseAccounts = () => {
       }}>
         {users && users.map(user => (
           <ProfileCard 
-            key={user.id}
+            key={user.id} // ← React uses this internally
             pfp={user.profilePicture}
-            username={user.date_of_birth}
-            // role={user.email}
-            // favGenres={user.major}
+            username={user.username}
+            role={user.email}
+            favGenres={user.bio}
           />
         ))}
       </div>
