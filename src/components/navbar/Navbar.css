@@ -3,9 +3,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffffff;
-    padding: 15px 7%;
-    transition: 0.5s;
+    background: transparent;
+    padding: 20px 7%;
+    transition: 0.3s;
 }
 
 .logo{
@@ -17,31 +17,65 @@ ul{
     flex: 1;
     list-style: none;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 ul li{
     display: inline-block;
-    margin: 10px 20px;
-    font-size: 18px;
+    margin: 0 15px;
+    font-size: 16px;
 }
 
 ul li a{
     text-decoration: none;
-    color: black;
+    color: #6b7280;
     padding: 8px 16px;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
+    font-weight: 500;
 }
 
 ul li a:hover{
-    background: rgba(83, 91, 242, 0.1);
-    color: #535bf2;
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
 }
 
 ul li a.active{
-    background: #535bf2;
+    background: #7c3aed;
     color: white;
+}
+
+ul li button{
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+ul li button:hover{
+    background: #6d28d9;
+    transform: translateY(-1px);
+}
+
+.logout-btn{
+    background: transparent !important;
+    color: #6b7280 !important;
+    border: 1px solid #6b7280 !important;
+    margin-left: 10px;
+    padding: 10px 20px !important;
+}
+
+.logout-btn:hover{
+    background: rgba(124, 58, 237, 0.1) !important;
+    color: #7c3aed !important;
+    border-color: #7c3aed !important;
 }
 
 .toggle-icon{
@@ -50,61 +84,58 @@ ul li a.active{
     margin-left: 40px;
 }
 
-.search-box{
-    display: flex;
-    align-items: center;
-    background: #242424;
-    padding: 10px 20px;
-    border-radius: 50px;
-}
-
-.search-box input{
-    padding: 6px;
+.theme-toggle{
     background: transparent;
-    border: 0;
-    outline: 0;
     color: white;
-    font-size: 18px;
-    max-width: 200px;
-}
-
-.search-box input::placeholder{
-    color: white;
-}
-
-.search-box img{
-    width: 20px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
     cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.theme-toggle:hover{
+    background: rgba(124, 58, 237, 0.1);
+    transform: translateY(-1px);
 }
 
 .dark .navbar{
-    background: #000;
+    background: transparent;
     color: #fff;
 }
 
-.dark .search-box{
-    background: #fff;
-}
-
-.dark .search-box input{
-    background: #fff;
-    color: #222;
-}
-
-.dark .search-box input::placeholder{
-    color: #222;
-}
-
 .dark ul li a{
-    color: white;
+    color: #9ca3af;
 }
 
 .dark ul li a:hover{
-    background: rgba(100, 108, 255, 0.2);
-    color: #646cff;
+    background: rgba(124, 58, 237, 0.2);
+    color: #a78bfa;
 }
 
 .dark ul li a.active{
-    background: #646cff;
+    background: #7c3aed;
     color: white;
+}
+
+.dark ul li button{
+    background: #7c3aed;
+    color: white;
+}
+
+.dark ul li button:hover{
+    background: #6d28d9;
+}
+
+.dark .logout-btn{
+    color: #9ca3af !important;
+    border-color: #9ca3af !important;
+}
+
+.dark .logout-btn:hover{
+    background: rgba(124, 58, 237, 0.2) !important;
+    color: #a78bfa !important;
+    border-color: #a78bfa !important;
 }

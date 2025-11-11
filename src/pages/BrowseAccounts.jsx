@@ -30,17 +30,15 @@ const BrowseAccounts = () => {
   }
 
   return (
-    <div className={`browse-accounts-page ${theme}`} style={{ padding: '20px' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Browse Accounts</h1>
-      <div style={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        justifyContent: 'center',
-        gap: '20px'
-      }}>
+    <div className={`browse-accounts-page ${theme}`}>
+      <div className="browse-header">
+        <h3 className="browse-greeting">Discover</h3>
+        <h1 className="browse-title">Content Creators.</h1>
+      </div>
+      <div className="profiles-grid">
         {users && users.map(user => (
           <ProfileCard 
-            key={user.id} // ← React uses this internally
+            key={user.id}
             pfp={user.profilePicture}
             username={user.username}
             role={user.email}

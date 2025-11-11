@@ -1,0 +1,94 @@
+.home-page {
+  padding: 80px 7%;
+  min-height: calc(100vh - 80px);
+}
+
+.hero-section {
+  max-width: 900px;
+}
+
+.greeting {
+  font-size: 18px;
+  color: #7c3aed;
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 60px;
+  line-height: 1.1;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.info-section {
+  margin-bottom: 50px;
+  animation: fadeInUp 1s ease-out;
+  animation-fill-mode: both;
+}
+
+.info-section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.info-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.info-section:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-heading {
+  font-size: 14px;
+  color: #7c3aed;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.section-text {
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* Dark theme */
+.home-page.dark .hero-title {
+  color: #f9fafb;
+}
+
+.home-page.dark .greeting,
+.home-page.dark .section-heading {
+  color: #a78bfa;
+}
+
+.home-page.dark .section-text {
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  .section-text {
+    font-size: 16px;
+  }
+}
