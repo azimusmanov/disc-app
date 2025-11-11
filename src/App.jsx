@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { ThemeProvider, useTheme } from './contexts/ThemeContext'
+import { AuthProvider, useAuth} from './contexts/AuthContext'
 import Navbar from './components/navbar/Navbar'
 import Home from './pages/Home'
 import BrowseAccounts from './pages/BrowseAccounts'
@@ -25,11 +26,13 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          <AppContent />
+        </ThemeProvider>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
