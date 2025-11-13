@@ -11,6 +11,13 @@ const Navbar = () => {
   const {user, signInWithGoogle, signOut} = useAuth()
   const location = useLocation()
 
+  const handleLogout = async () => {
+    console.log('Logout button clicked!')
+    console.log('User before logout:', user)
+    await signOut()
+    console.log('Logout completed')
+  }
+
   return (
     <div className='navbar'>
       <Link to="/">
@@ -24,7 +31,7 @@ const Navbar = () => {
           {user ? (
             <>
               <Link to="/your-account" className={location.pathname === '/your-account' ? 'active' : ''}>Your Account</Link>
-              <button onClick={signOut} className="logout-btn">
+              <button onClick={handleLogout} className="logout-btn">
                 Logout
               </button>
             </>

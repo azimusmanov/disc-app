@@ -90,8 +90,16 @@ export const AuthProvider = ({ children }) => {
   }
 
   const signOut = async () => {
+    console.log('signOut function called')
     const { error } = await supabase.auth.signOut()
-    if (error) console.error('Error logging out:', error)
+    console.log('Supabase signOut result:', { error })
+    if (error) {
+      console.error('Error logging out:', error)
+    } else {
+      console.log('Setting user to null and redirecting...')
+      setUser(null)
+      window.location.href = '/'
+    }
   }
 
   // values to be passed
