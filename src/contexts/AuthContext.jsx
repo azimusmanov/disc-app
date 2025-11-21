@@ -89,17 +89,28 @@ export const AuthProvider = ({ children }) => {
     if (error) console.error('Error logging in:', error)
   }
 
-  const signOut = async () => {
-    console.log('signOut function called')
+  // const signOut = async () => {
+  //   console.log('signOut function called')
+  //   const { error } = await supabase.auth.signOut()
+  //   console.log('Supabase signOut result:', { error })
+  //   if (error) {
+  //     console.error('Error logging out:', error)
+  //   } else {
+  //     console.log('Setting user to null and redirecting...')
+  //     setUser(null)
+  //     window.location.href = '/'
+  //   }
+  // }
+
+  async function signOut() {
+    console.log('About to call')
     const { error } = await supabase.auth.signOut()
-    console.log('Supabase signOut result:', { error })
+    console.log('after')
     if (error) {
-      console.error('Error logging out:', error)
-    } else {
-      console.log('Setting user to null and redirecting...')
-      setUser(null)
-      window.location.href = '/'
+      console.log("Error Logging Out: ", error)
     }
+    setUser(null)
+    window.location.href = '/'
   }
 
   // values to be passed
