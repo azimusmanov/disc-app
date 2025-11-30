@@ -15,7 +15,7 @@ const Home = () => {
           <h2 className="section-heading">WHAT WE DO</h2>
           <p className="section-text">
             Upload your short-form content once and distribute it across multiple platforms automatically. 
-            Save time and maximize your reach effortlessly.
+            Save time and maximize your reach effortlessly, while also connecting with other creators!
           </p>
         </div>
 
