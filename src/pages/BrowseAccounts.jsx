@@ -8,6 +8,7 @@ const BrowseAccounts = () => {
 //   Inititializing profiles state to Null
   const [users, setUsers] = useState([])
 
+  // TODO: ADD LOADING STATE + ANIMATION
   useEffect(() => {
     getUsers()
   }, [])
@@ -22,7 +23,7 @@ const BrowseAccounts = () => {
 
       const result = await response.json()
       console.log(result)
-      setUsers(result)  // ← Move this inside
+      setUsers(result)
     } catch (error) {
       console.error(error.message)
     }
