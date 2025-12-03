@@ -59,21 +59,38 @@ export const AuthProvider = ({ children }) => {
   const createUserProfile = async (authUser) => {
     try {
       // Create in users table
-      await supabase.from('users').insert({
-        id: authUser.id,
-        email: authUser.email,
-        username: authUser.user_metadata?.full_name || authUser.email.split('@')[0],
-        created_at: new Date().toISOString()
-      })
-      
+      const { data: usersInsert, error: usersError } = await supabase
+        .from('users')
+        .insert({
+          id: authUser.id,
+          email: authUser.email,
+          username: authUser.user_metadata?.full_name || authUser.email.split('@')[0],
+          created_at: new Date().toISOString()
+        })
+        .select()
+
+      if (usersError) {
+        console.error('Error inserting into users:', usersError)
+        return
+      }
+
       // Create in user_profiles table (one-to-one with users)
-      await supabase.from('user_profiles').insert({
-        id: authUser.id,  // Same ID as users table
-        bio: 'New user - update your bio!',
-        date_of_birth: null
-      })
+      // Use upsert to avoid duplicate key errors if the profile already exists
+      const { data: profileInsert, error: profileError } = await supabase
+        .from('user_profiles')
+        .upsert({
+          id: authUser.id,  // Same ID as users table
+          bio: 'New user - update your bio!',
+          date_of_birth: new Date().toISOString() // fix this later
+        }, { onConflict: 'id' })
+        .select()
+
+      if (profileError) {
+        console.error('Error inserting into user_profiles:', profileError)
+        return
+      }
       
-      console.log('User profile created successfully')
+      console.log('User and profile created:', { usersInsert, profileInsert })
     } catch (error) {
       console.error('Error creating user profile:', error)
     }
